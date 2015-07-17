@@ -14,7 +14,7 @@ object HttpTimerMetricsSpec extends RouteSpecification with HttpTimerMetrics wit
       }
     }
     val counts = metricRegistry.timer("ping.GET")
-    counts.getCount() must be_==(10)
+    counts.getCount() must be_==(10).eventually
   }
 
   "the slow route should take over a second" in {
@@ -26,7 +26,7 @@ object HttpTimerMetricsSpec extends RouteSpecification with HttpTimerMetrics wit
     }
     val counts = metricRegistry.timer("slow.GET")
     counts.getCount() must be_==(5)
-    scala.math.abs(1D - counts.getMeanRate()) must be_<=(0.01D)
+    scala.math.abs(1D - counts.getMeanRate()) must be_<=(0.01D).eventually
   }
 
   def routes =
