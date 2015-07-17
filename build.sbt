@@ -4,7 +4,7 @@ name := "akka-http-metrics"
 
 organization := "backline"
 
-version := "0.2.0"
+version := "0.1.0"
 
 scalaVersion := "2.11.7"
 
@@ -32,10 +32,11 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-testkit-experimental" % "1.0" % "test"
 )
 
+bintrayOrganization in bintray := Some("backline")
 
 bintrayPublishSettings ++ Seq(
   publishArtifact in Test := false,
   repository in bintray := "open-source",
-  homepage := Some(url("https://github.com/adamdecaf/science")),
+  homepage := Some(url("https://github.com/backline/akka-http-metrics")),
   licenses ++= Seq(("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")))
 )

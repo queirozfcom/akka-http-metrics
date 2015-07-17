@@ -12,6 +12,10 @@ Current versions:
 ## Install & Usage
 
 ```
+resolvers += "bintray-backline-open-source-releases" at "https://dl.bintray.com/backline/open-source"
+libraryDependencies ++= Seq(
+  "backline" %% "akka-http-metrics" % "0.1.0"
+)
 ```
 
 ## Example Usage
