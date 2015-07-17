@@ -1,6 +1,10 @@
+import bintray.Keys._
+
 name := "akka-http-metrics"
 
 organization := "backline"
+
+version := "0.2.0"
 
 scalaVersion := "2.11.7"
 
@@ -26,4 +30,12 @@ scalacOptions in Test ++= Seq("-Yrangepos")
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-core" % "3.6.2" % "test",
   "com.typesafe.akka" %% "akka-http-testkit-experimental" % "1.0" % "test"
+)
+
+
+bintrayPublishSettings ++ Seq(
+  publishArtifact in Test := false,
+  repository in bintray := "open-source",
+  homepage := Some(url("https://github.com/adamdecaf/science")),
+  licenses ++= Seq(("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")))
 )
