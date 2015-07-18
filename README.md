@@ -7,14 +7,14 @@
 Current versions:
 
 - `akka-http-*`: `1.0`
-- `metrics-core`: `4.0.0-SNAPSHOT`
+- `metrics-core`: `3.1.2`
 
 ## Install & Usage
 
 ```scala
 resolvers += "bintray-backline-open-source-releases" at "https://dl.bintray.com/backline/open-source"
 libraryDependencies ++= Seq(
-  "backline" %% "akka-http-metrics" % "0.1.0"
+  "backline" %% "akka-http-metrics" % "0.2.0"
 )
 ```
 
