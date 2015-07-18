@@ -1,5 +1,5 @@
 package backline.http.metrics
-import io.dropwizard.metrics._
+import com.codahale.metrics._
 import java.util.Iterator
 import akka.actor.Status.Failure
 import akka.http.scaladsl.server.{Directive0, RequestContext}
@@ -36,6 +36,6 @@ trait MetricsBase extends BasicDirectives {
   }
 
   protected class NameBasedMetricFilter(needle: String) extends MetricFilter {
-    def matches(name: MetricName, metric: Metric): Boolean = name.getKey() equalsIgnoreCase needle
+    def matches(name: String, metric: Metric): Boolean = name equalsIgnoreCase needle
   }
 }

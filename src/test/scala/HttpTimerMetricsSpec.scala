@@ -1,7 +1,7 @@
 package backline.http.metrics
 import akka.http.scaladsl.server.Directives
 import akka.http.scaladsl.model.StatusCodes
-import io.dropwizard.metrics.MetricRegistry
+import com.codahale.metrics.MetricRegistry
 
 object HttpTimerMetricsSpec extends RouteSpecification with HttpTimerMetrics with Directives {
   val metricRegistry = new MetricRegistry()

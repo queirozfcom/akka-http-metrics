@@ -4,7 +4,7 @@ name := "akka-http-metrics"
 
 organization := "backline"
 
-version := "0.1.0"
+version := "0.2.0"
 
 scalaVersion := "2.11.7"
 
@@ -15,7 +15,7 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "io.dropwizard.metrics" % "metrics-core" % "4.0.0-SNAPSHOT",
+  "io.dropwizard.metrics" % "metrics-core" % "3.1.2",
   "com.typesafe.akka" %% "akka-http-experimental" % "1.0",
   "com.typesafe.akka" %% "akka-http-core-experimental" % "1.0",
   "com.typesafe.akka" %% "akka-stream-experimental" % "1.0"

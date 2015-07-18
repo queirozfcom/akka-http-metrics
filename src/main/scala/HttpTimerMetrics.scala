@@ -1,5 +1,5 @@
 package backline.http.metrics
-import io.dropwizard.metrics._
+import com.codahale.metrics._
 import akka.http.scaladsl.server.Directive0
 import scala.util.control.NonFatal
 

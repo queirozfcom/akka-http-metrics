@@ -1,7 +1,7 @@
 package backline.http.metrics
 import akka.http.scaladsl.server.Directives
 import akka.http.scaladsl.model.StatusCodes
-import io.dropwizard.metrics.MetricRegistry
+import com.codahale.metrics.MetricRegistry
 import scala.concurrent.ExecutionContext
 
 object ResponseCodeMetricsSpec extends RouteSpecification with ResponseCodeMetrics with Directives {
