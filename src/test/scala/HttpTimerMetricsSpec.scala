@@ -7,14 +7,14 @@ object HttpTimerMetricsSpec extends RouteSpecification with HttpTimerMetrics wit
   val metricRegistry = new MetricRegistry()
 
   "record timings for /ping" in {
-    (1 to 10) foreach { _ =>
+    (1 to 1000) foreach { _ =>
       Get("/ping") ~> routes ~> check {
         status === StatusCodes.OK
         responseAs[String].contains("pong") must beTrue
       }
     }
     val counts = metricRegistry.timer("ping.GET")
-    counts.getCount() must be_==(10).eventually
+    counts.getCount() must be_==(1000).eventually
   }
 
   "the slow route should take over a second" in {

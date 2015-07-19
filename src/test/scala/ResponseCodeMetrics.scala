@@ -8,43 +8,43 @@ object ResponseCodeMetricsSpec extends RouteSpecification with ResponseCodeMetri
   val metricRegistry = new MetricRegistry()
 
   "count up for successful requests" in {
-    (1 to 10) foreach { _ =>
+    (1 to 1000) foreach { _ =>
       Get("/ok") ~> routes ~> check {
         status === StatusCodes.OK
       }
     }
     val counts = metricRegistry.counter("ok.GET-2xx")
-    counts.getCount() must be_==(10).eventually
+    counts.getCount() must be_==(1000)
   }
 
   "count up for redirecting requests" in {
-    (1 to 10) foreach { _ =>
+    (1 to 1000) foreach { _ =>
       Get("/redirect") ~> routes ~> check {
         status === StatusCodes.Found
       }
     }
     val counts = metricRegistry.counter("redirect.GET-3xx")
-    counts.getCount() must be_==(10).eventually
+    counts.getCount() must be_==(1000)
   }
 
   "count up for bad requests" in {
-    (1 to 10) foreach { _ =>
+    (1 to 1000) foreach { _ =>
       Get("/bad") ~> routes ~> check {
         status === StatusCodes.BadRequest
       }
     }
     val counts = metricRegistry.counter("bad.GET-4xx")
-    counts.getCount() must be_==(10).eventually
+    counts.getCount() must be_==(1000)
   }
 
   "count up for failing requests" in {
-    (1 to 10) foreach { _ =>
+    (1 to 1000) foreach { _ =>
       Get("/fail") ~> routes ~> check {
         status === StatusCodes.InternalServerError
       }
     }
     val counts = metricRegistry.counter("fail.GET-5xx")
-    counts.getCount() must be_==(10).eventually
+    counts.getCount() must be_==(1000)
   }
 
   def routes =
