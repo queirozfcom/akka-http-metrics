@@ -19,6 +19,11 @@ trait MetricsBase extends BasicDirectives {
     findAndRegisterMetric(name, new Counter(), found)
   }
 
+  protected def findAndRegisterMeter(name: String): Meter = {
+    val found = metricRegistry.getMeters(new NameBasedMetricFilter(name)).values.iterator
+    findAndRegisterMetric(name, new Meter(), found)
+  }
+
   protected def getMetricName(ctx: RequestContext): String = {
     val methodName = ctx.request.method.name
     val routeName = ctx.request.uri.path.toString.drop(1).replaceAll("/", ".")
