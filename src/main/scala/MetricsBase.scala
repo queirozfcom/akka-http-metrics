@@ -31,12 +31,15 @@ trait MetricsBase extends BasicDirectives {
   }
 
   private[this] def findAndRegisterMetric[T <: Metric](name: String, metric: => T, found: Iterator[T]): T = {
-    if (found != null && found.hasNext()) {
-      found.next()
-    } else {
-      val m = metric
-      metricRegistry.register(name, m)
-      m
+    val m = metric
+    try {
+      if (found != null && found.hasNext()) {
+        found.next()
+      } else {
+        metricRegistry.register(name, m)
+      }
+    } catch {
+      case err: IllegalArgumentException => m
     }
   }
 
