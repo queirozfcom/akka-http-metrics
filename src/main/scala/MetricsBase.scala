@@ -39,7 +39,7 @@ trait MetricsBase extends BasicDirectives {
         metricRegistry.register(name, m)
       }
     } catch {
-      case err: IllegalArgumentException => m
+      case err: IllegalArgumentException if err.getMessage.contains("A metric named") => m
     }
   }
 
