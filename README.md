@@ -37,6 +37,7 @@ trait MyRoute extends Directives {
 
 ## Contributing
 
+- If you want you can make a github issue or reach out to me directly.
 - Open a PR and submit it!
 
 ## License
