@@ -6,7 +6,7 @@
 
 Current versions:
 
-- `akka-http-*`: `1.0`
+- `akka-http-*`: `2.4.4`
 - `metrics-core`: `3.1.2`
 
 ## Install & Usage
